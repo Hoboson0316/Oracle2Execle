@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates>
+    <template name="testRead">
+        <titleRow>
+            <titleCol span="6">艓栽植林在地</titleCol>
+        </titleRow>
+        <titleRow>
+            <titleCol>编制单位（盖章）：</titleCol>
+            <titleCol></titleCol>
+            <titleCol span="3">编制日期：</titleCol>
+            <titleCol>单位：元</titleCol>
+        </titleRow>
+        <titleRow>
+            <titleCol>村（社区）</titleCol>
+            <titleCol>姓名</titleCol>
+            <titleCol>身份证</titleCol>
+            <titleCol>账号</titleCol>
+            <titleCol>金额</titleCol>
+            <titleCol>创建时间</titleCol>
+        </titleRow>
+        <dataRow>
+            <dataCol name="area"></dataCol>
+            <dataCol name="name"></dataCol>
+            <dataCol name="idCard"></dataCol>
+            <dataCol name="bankAccount"></dataCol>
+            <dataCol name="amount"></dataCol>
+            <dataCol name="createTime" convertor="datetime"></dataCol>
+        </dataRow>
+    </template>
+    <template name="testWrite">
+        <titleRow>
+            <titleCol span="6">艓栽植林在地</titleCol>
+        </titleRow>
+        <titleRow>
+            <titleCol>编制单位（盖章）：</titleCol>
+            <titleCol></titleCol>
+            <titleCol span="3">编制日期：</titleCol>
+            <titleCol>单位：元</titleCol>
+        </titleRow>
+        <titleRow>
+            <titleCol>村（社区）</titleCol>
+            <titleCol>姓名</titleCol>
+            <titleCol>身份证</titleCol>
+            <titleCol>账号</titleCol>
+            <titleCol>金额</titleCol>
+            <titleCol>创建时间</titleCol>
+        </titleRow>
+        <dataRow>
+            <dataCol name="area">
+                <validator name="required"></validator>
+            </dataCol>
+            <dataCol name="name">
+                <validator name="required"></validator>
+                <validator name="chinese"></validator>
+                <validator name="minLength">
+                    <property name="minLength">5</property>
+                </validator>
+            </dataCol>
+            <dataCol name="idCard">
+                <validator name="required"></validator>
+                <validator name="mobile"></validator>
+            </dataCol>
+            <dataCol name="bankAccount">
+                <validator name="required"></validator>
+                <validator name="email"></validator>
+                <validator name="maxLength">
+                    <property name="maxLength">10</property>
+                </validator>
+            </dataCol>
+            <dataCol name="amount">
+                <validator name="range">
+                    <property name="min">10</property>
+                    <property name="max">20</property>
+                </validator>
+            </dataCol>
+            <dataCol name="createTime" convertor="datetime">
+                <validator name="datetime">
+                    <property name="dateFormat">yyyy-MM-dd HH:mm:ss</property>
+                </validator>
+            </dataCol>
+        </dataRow>
+    </template>
+</templates>
